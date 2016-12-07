@@ -8,7 +8,7 @@ Application must call mos_init( yield ), passing in a yield() function pointer.
   
     void mos_init( void(*yield_func)(void) );   // init OS vars and yield() function ptr
 
-Timers require a periodic interrupt that calls minios_tick() from its ISR.
+Timers require a periodic interrupt that calls mos_tick() from its ISR.
 
     void mos_tick( void );      // call on each timer interrupt to provide OS time base
   
