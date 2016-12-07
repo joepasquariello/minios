@@ -4,9 +4,9 @@ Simple timer and mailbox functions to add inter-task communication to a cooperat
 
 The cooperative scheduler must define and expose the following:
 
-  uint32_t ntasks;        // number of active tasks
-  uint32_t curtask;       // id of current task in range 0-(ntasks-1)
-  void yield( void );     // function to yield the CPU
+  uint32_t ntasks     (number of active tasks)
+  uint32_t curtask    (id of current task in range 0..ntasks-1)
+  void yield( void )  (function to yield the CPU)
 
 Application must call minios_init() and pass a pointer to the "yield" function.
   
