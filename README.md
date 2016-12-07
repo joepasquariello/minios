@@ -2,9 +2,9 @@
 
 Simple timing and inter-task communication functions to extend a cooperative scheduler. Tasks can delay for a specified time or wait for data/signals. Messages can be sent to tasks from other tasks or from ISRs. ISRs cannot delay or receive messages.
 
-The cooperative scheduler must define and expose "uint32_t ntasks" (number of active tasks), "uint32_t curtask" (id of current task in range 0..ntasks-1), and "void yield(void)"  (function to yield the CPU).
+The cooperative scheduler must define and expose "uint32_t ntasks" (number of active tasks), "uint32_t curtask" (id of current task in range 0..ntasks-1), and maintain those values as tasks are created and swapped.
 
-Application must call mos_init() and pass the address of the scheduler's "yield" function.
+Application must call mos_init( yield ), passing in a yield() function pointer.
   
     void mos_init( void(*yield_func)(void) );   // init OS vars and yield() function ptr
 
