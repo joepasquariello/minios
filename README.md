@@ -1,6 +1,6 @@
 # minios
 
-Simple timer and mailbox functions to add inter-task communication to a cooperative scheduler. Tasks can delay for a specified time or wait for data/signals via mailboxes. Messages can be sent from tasks or from ISRs.
+Simple timing and inter-task communication functions to extend a cooperative scheduler. Tasks can delay for a specified time or wait for data/signals. Messages can be sent to tasks from other tasks or from ISRs. ISRs cannot delay or receive messages.
 
 The cooperative scheduler must define and expose "uint32_t ntasks" (number of active tasks), "uint32_t curtask" (id of current task in range 0..ntasks-1), and "void yield(void)"  (function to yield the CPU).
 
@@ -18,3 +18,5 @@ Timer and mail provided are as shown below. Timeouts are in units of periodic ti
     void  mos_post   (char **mboxp, char *msg, int *errp);
     char *mos_pend   (char **mboxp, long timeout, int *errp);
     char *mos_accept (char **mboxp, int *errp);
+    
+Message queues will be added next, then semaphores.
