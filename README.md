@@ -12,11 +12,10 @@ Timers require a periodic interrupt that calls mos_tick() from its ISR.
 
     void mos_tick( void );      // call on each timer interrupt to provide OS time base
   
-Timer and mail provided are as shown below. Timeouts are in units of periodic timer ticks, messages are type pointer to char, and error codes are defined in minios.h
+Timer and mail functions are shown below. Timeouts are in units of periodic timer ticks, messages are type pointer to char, and error codes are defined in minios.h
 
     void  mos_delay  (long timeout);
     void  mos_post   (char **mboxp, char *msg, int *errp);
     char *mos_pend   (char **mboxp, long timeout, int *errp);
     char *mos_accept (char **mboxp, int *errp);
     
-Message queues will be added next, then semaphores.
