@@ -1,4 +1,4 @@
-# minios
+# minios1
 
 Simple timing and inter-task communication functions to extend a cooperative scheduler. Tasks can delay for a specified time or wait for data/signals. Messages can be sent to tasks from other tasks or from ISRs. ISRs cannot delay or receive messages.
 
