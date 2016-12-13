@@ -2,8 +2,8 @@
 * Example program for MINICOOP and MINIOS
 *********************************************************************************/
 #include <timerone.h>
-#include "minicoop.h"	// task_create()
-#include "minios.h"		// mos_init(), mos_tick(), etc.
+#include <minicoop.h>  // task_create()
+#include <minios.h>    // mos_init(), mos_tick(), etc.
 
 #define STACK_SIZE 128
 static uint32_t stack1[STACK_SIZE] __attribute__ ((aligned (4)));
@@ -16,7 +16,7 @@ static void timerFunc( void ) {
 
   // toggle LED at about 8 Hz (use power of 2 to avoid ticks roll-over issue)
   if ((mos_ticks % 128) == 0)
-	digitalWrite( LED_BUILTIN, !digitalRead( LED_BUILTIN ) );
+    digitalWrite( LED_BUILTIN, !digitalRead( LED_BUILTIN ) );
 
   int err;
   // signal task 1 at about 8 Hz
@@ -25,7 +25,7 @@ static void timerFunc( void ) {
 
   // signal task 2 at about 4 Hz
   if ((mos_ticks % 256) == 0)
-	mos_post( &mos_mbox[2], MOS_SIGNAL, &err );
+    mos_post( &mos_mbox[2], MOS_SIGNAL, &err );
 }
 
 // pend on mailbox and write task id each time mail is received
