@@ -2,8 +2,8 @@
 * Example program for MINICOOP and MINIOS
 *********************************************************************************/
 #include <timerone.h>
-#include "minicoop.h"   // task_create()
-#include "minios.h"     // mos_init(), mos_tick(), etc.
+#include <minicoop.h>   // task_create()
+#include <minios.h>     // mos_init(), mos_tick(), etc.
 
 #define STACK_SIZE 128
 static uint32_t stack1[STACK_SIZE] __attribute__ ((aligned (4)));
